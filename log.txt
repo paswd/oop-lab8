@@ -1,0 +1,2 @@
+g++ -c -pedantic -Wall -Werror -Wno-sign-compare -Wno-long-long -std=c++11 -lm TStackItem.cpp
+Makefile:28: ошибка выполнения рецепта для цели «TStackItem.o»
