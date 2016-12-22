@@ -24,6 +24,12 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Rectangle& obj);
 	//Переопределение ввода
 	friend std::istream& operator>>(std::istream& is, Rectangle& obj);
+
+	bool operator==(Figure& other) override;
+	bool operator<(Figure& other) override;
+	bool operator>(Figure& other) override;
+	bool operator<=(Figure& other) override;
+	bool operator>=(Figure& other) override;
 private:
 	Position pos;
 	double LenA;

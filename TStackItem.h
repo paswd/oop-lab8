@@ -8,7 +8,7 @@ template<class T> class TStackItem {
 public:
 	//Конструктор
 	TStackItem(T *item);
-	TStackItem(const std::shared_ptr<T>& Item);
+	TStackItem(std::shared_ptr<T> item);
 	//Allocator allocator();
 	//Переопределение вывода
 	template<class A> friend std::ostream& operator<<(std::ostream& os, const TStackItem<A>& obj);

@@ -61,6 +61,7 @@ std::ostream& operator<<(std::ostream& os, const Rectangle& obj)
 	os << "Side lengths: " << endl;
 	os << "A: " << obj.LenA << endl;
 	os << "B: " << obj.LenB << endl;
+	os << "Square: " << obj.LenA * obj.LenB << endl;
 	return os;
 }
 
@@ -72,4 +73,21 @@ std::istream& operator>>(std::istream& is, Rectangle& obj)
 	is >> obj.LenB;
 	std::cout << "Rectangle created" << std::endl;
 	return is;
+}
+
+
+bool Rectangle::operator==(Figure& other) {
+	return this->Square() == other.Square();
+}
+bool Rectangle::operator<(Figure& other) {
+	return this->Square() < other.Square();
+}
+bool Rectangle::operator>(Figure& other) {
+	return this->Square() > other.Square();
+}
+bool Rectangle::operator<=(Figure& other) {
+	return this->Square() <= other.Square();
+}
+bool Rectangle::operator>=(Figure& other) {
+	return this->Square() >= other.Square();
 }

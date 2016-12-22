@@ -10,6 +10,14 @@ public:
 	virtual ~Figure() {};
 	//Вывод
 	virtual std::ostream& toStream(std::ostream& os) = 0;
+
+	virtual bool operator==(Figure& other) = 0;
+	virtual bool operator<(Figure& other) = 0;
+	virtual bool operator>(Figure& other) = 0;
+	virtual bool operator<=(Figure& other) = 0;
+	virtual bool operator>=(Figure& other) = 0;
+
+	//Figure& operator=(const Figure& right);
 };
 
 //Переопределение вывода

@@ -18,6 +18,12 @@ public:
 	std::ostream& toStream(std::ostream& os) override;
 	friend std::ostream& operator<<(std::ostream& os, const Trapeze& obj);
 	friend std::istream& operator>>(std::istream& is, Trapeze& obj);
+
+	bool operator==(Figure& other) override;
+	bool operator<(Figure& other) override;
+	bool operator>(Figure& other) override;
+	bool operator<=(Figure& other) override;
+	bool operator>=(Figure& other) override;
 private:
 	Position pos1;
 	Position pos2;

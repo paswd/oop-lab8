@@ -6,6 +6,7 @@
 #include <memory>
 #include <future>
 #include <mutex>
+#include <pthread.h>
 
 template <class T> class TStack {
 public:
@@ -14,7 +15,7 @@ public:
 
 	//Добавление в стек
 	void push(T* item);
-	void push(std::shared_ptr<T> &&item);
+	void push(std::shared_ptr<T> item);
 	//Проверка на пустоту
 	bool empty();
 	size_t size();

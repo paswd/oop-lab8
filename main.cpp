@@ -17,8 +17,8 @@ int main(void)
 	cout << "r <value> - push Rectangle to stack\n";
 	cout << "d - pop from stack and print popped item\n";
 	cout << "p - print stack\n";
-	cout << "q - sort basic\n";
-	cout << "Q - sort parallel\n";
+	cout << "c - sort basic\n";
+	cout << "C - sort parallel\n";
 	cout << "q - exit\n";
 	cout << "-------------------------------------------\n";
 	//int cnt = 0;
@@ -55,12 +55,12 @@ int main(void)
 					cout << *value << endl;
 				break;
 
-			case 'q':
+			case 'c':
 				stack.sort();
 				break;
 
-			case 'Q':
-				stack.sort_quick();
+			case 'C':
+				stack.sort_parallel();
 				break;
 
 			case 'p':

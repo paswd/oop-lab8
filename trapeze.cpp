@@ -66,6 +66,7 @@ std::ostream& operator<<(std::ostream& os, const Trapeze& obj)
 	os << "Side lengths: " << endl;
 	os << "A: " << obj.LenA << endl;
 	os << "B: " << obj.LenB << endl;
+	os << "Square: " << (obj.LenA + obj.LenB) * Absolute(obj.pos1.y - obj.pos2.y) / 2 << endl;
 	return os;
 }
 
@@ -78,4 +79,21 @@ std::istream& operator>>(std::istream& is, Trapeze& obj)
 	is >> obj.LenB;
 	std::cout << "Trapeze created" << std::endl;
 	return is;
+}
+
+
+bool Trapeze::operator==(Figure& other) {
+	return this->Square() == other.Square();
+}
+bool Trapeze::operator<(Figure& other) {
+	return this->Square() < other.Square();
+}
+bool Trapeze::operator>(Figure& other) {
+	return this->Square() > other.Square();
+}
+bool Trapeze::operator<=(Figure& other) {
+	return this->Square() <= other.Square();
+}
+bool Trapeze::operator>=(Figure& other) {
+	return this->Square() >= other.Square();
 }

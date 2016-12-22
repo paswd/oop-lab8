@@ -2,11 +2,15 @@
 #include <iostream>
 #include "allocator.h"
 
-
-template <class T> TStackItem<T>::TStackItem(const std::shared_ptr<T>& item) {
+template <class T> TStackItem<T>::TStackItem(T *item) {
+	this->item = std::shared_ptr<T>(item);
+	this->next = NULL;
+	//std::cout << "Stack item: created" << std::endl;
+}
+template <class T> TStackItem<T>::TStackItem(std::shared_ptr<T> item) {
 	this->item = item;
 	this->next = NULL;
-	std::cout << "Stack item: created" << std::endl;
+	//std::cout << "Stack item: created" << std::endl;
 }
 
 template <class T> Allocator TStackItem<T>::allocator{};
@@ -24,7 +28,7 @@ template <class T> std::shared_ptr<TStackItem<T>> TStackItem<T>::GetNext() {
 	return this->next;
 }
 template <class T> TStackItem<T>::~TStackItem() {
-	std::cout << "Stack item: deleted" << std::endl;
+	//std::cout << "Stack item: deleted" << std::endl;
 }
 template <class A> std::ostream& operator<<(std::ostream& os, const TStackItem<A>& obj) {
 	os << "[" << *obj.item << "]" << std::endl;

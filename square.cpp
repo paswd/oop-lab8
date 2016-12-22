@@ -84,3 +84,20 @@ std::istream& operator>>(std::istream& is, FSquare& obj)
 	std::cout << "Square created" << std::endl;
 	return is;
 }
+
+
+bool FSquare::operator==(Figure& other) {
+	return this->Square() == other.Square();
+}
+bool FSquare::operator<(Figure& other) {
+	return this->Square() < other.Square();
+}
+bool FSquare::operator>(Figure& other) {
+	return this->Square() > other.Square();
+}
+bool FSquare::operator<=(Figure& other) {
+	return this->Square() <= other.Square();
+}
+bool FSquare::operator>=(Figure& other) {
+	return this->Square() >= other.Square();
+}

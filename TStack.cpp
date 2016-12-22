@@ -1,4 +1,5 @@
 #include "TStack.h"
+#include <exception>
 
 template <class T> TStack<T>::TStack() : head(NULL) {
 }
@@ -19,10 +20,10 @@ template <class T> std::shared_ptr<T> TStack<T>::operator[](size_t i) {
 
 template <class T> void TStack<T>::sort() {
 	if (size() > 1) {
-		std::shared_ptr<T> middle = pop();
+		std::shared_ptr<T> middle = this->pop();
 		TStack<T> left, right;
 		while (!empty()) {
-			std::shared_ptr<T> item = pop();
+			std::shared_ptr<T> item = this->pop();
 			if (*item < *middle) {
 				left.push(item);
 			} else {
@@ -91,13 +92,22 @@ template <class T> void TStack<T>::push(T *item) {
 	other->SetNext(head);
 	head = other;
 }
-template <class T> void TStack<T>::push(std::shared_ptr<T> &&item) {
+template <class T> void TStack<T>::push(std::shared_ptr<T> item) {
 	std::shared_ptr<TStackItem<T>> other(new TStackItem<T>(item));
 	other->SetNext(head);
 	head = other;
 }
 template <class T> bool TStack<T>::empty() {
 	return head == NULL;
+}
+template <class T> size_t TStack<T>::size() {
+	std::shared_ptr<TStackItem<T>> tmp = this->head;
+	size_t cnt = 0;
+	while (tmp != NULL) {
+		cnt++;
+		tmp = tmp->GetNext();
+	}
+	return cnt;
 }
 template <class T> std::shared_ptr<T> TStack<T>::pop() {
 	std::shared_ptr<T> result;
